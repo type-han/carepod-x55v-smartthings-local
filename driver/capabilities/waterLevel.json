@@ -1,0 +1,16 @@
+{
+  "name": "Water Level",
+  "attributes": {
+    "waterLevel": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "integer", "minimum": 0, "maximum": 3 }
+        },
+        "additionalProperties": false,
+        "required": ["value"]
+      }
+    }
+  },
+  "commands": {}
+}

@@ -1,0 +1,6 @@
+{
+  "name": "CAREPOD X55V Local",
+  "type": "DRIVER",
+  "description": "CAREPOD X55V humidifier over a local MQTT broker (no vendor cloud). Unofficial.",
+  "termsOfServiceUrl": "https://github.com/type-han/carepod-x55v-smartthings-local"
+}

@@ -1,0 +1,13 @@
+# Copy to /etc/systemd/system/. Loads /etc/carepod/redirect.nft.
+[Unit]
+Description=CAREPOD: redirect humidifier MQTT to the local broker
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/nft -f /etc/carepod/redirect.nft
+ExecStop=/usr/sbin/nft delete table bridge carepod
+
+[Install]
+WantedBy=multi-user.target

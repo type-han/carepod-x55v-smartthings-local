@@ -1,0 +1,53 @@
+{
+  "dashboard": {
+    "states": [
+      {
+        "label": "{{alertStatus.value}}",
+        "alternatives": [
+          { "key": "normal", "value": "정상", "type": "active" },
+          { "key": "warning", "value": "경고", "type": "inactive" },
+          { "key": "error", "value": "오류", "type": "inactive" }
+        ]
+      }
+    ],
+    "actions": []
+  },
+  "detailView": [
+    {
+      "label": "가습기 상태",
+      "displayType": "state",
+      "state": {
+        "label": "{{alertStatus.value}}",
+        "alternatives": [
+          { "key": "normal", "value": "정상", "type": "active" },
+          { "key": "warning", "value": "경고", "type": "inactive" },
+          { "key": "error", "value": "오류", "type": "inactive" }
+        ]
+      }
+    },
+    {
+      "label": "오류·경고 코드",
+      "displayType": "state",
+      "state": { "label": "{{alertCode.value}}" }
+    }
+  ],
+  "automation": {
+    "conditions": [
+      {
+        "label": "가습기 상태",
+        "displayType": "list",
+        "list": {
+          "alternatives": [
+            { "key": "normal", "value": "정상", "type": "active" },
+            { "key": "warning", "value": "경고", "type": "inactive" },
+            { "key": "error", "value": "오류", "type": "inactive" }
+          ],
+          "value": "alertStatus.value"
+        }
+      }
+    ],
+    "actions": []
+  },
+  "id": "fieldforgotten06843.deviceAlert",
+  "version": 1
+}

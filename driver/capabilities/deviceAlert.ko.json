@@ -1,0 +1,20 @@
+{
+  "tag": "ko",
+  "label": "가습기 상태",
+  "attributes": {
+    "alertStatus": {
+      "label": "가습기 상태",
+      "i18n": {
+        "value": {
+          "normal": { "label": "정상" },
+          "warning": { "label": "경고" },
+          "error": { "label": "오류" }
+        }
+      }
+    },
+    "alertCode": {
+      "label": "오류·경고 코드"
+    }
+  },
+  "commands": {}
+}

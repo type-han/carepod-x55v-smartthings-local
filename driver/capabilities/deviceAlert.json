@@ -1,0 +1,26 @@
+{
+  "name": "Device Alert",
+  "attributes": {
+    "alertStatus": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "string", "enum": ["normal", "warning", "error"] }
+        },
+        "additionalProperties": false,
+        "required": ["value"]
+      }
+    },
+    "alertCode": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "string", "maxLength": 64 }
+        },
+        "additionalProperties": false,
+        "required": ["value"]
+      }
+    }
+  },
+  "commands": {}
+}

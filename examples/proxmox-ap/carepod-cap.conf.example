@@ -1,0 +1,20 @@
+# hostapd config: copy to /etc/hostapd/carepod-cap.conf, chmod 600.
+# - ssid: must differ from your existing Wi-Fi names, or other devices may roam to this AP
+# - channel: use your router's channel or 1/6/11 (the humidifier is 2.4 GHz only)
+# - bridge: the Linux bridge your LAN is on, so the humidifier still gets an IP from your router
+# - wpa_passphrase: pick your own; you enter it in the CAREPOD app when registering the humidifier
+interface=wlp2s0
+bridge=vmbr0
+driver=nl80211
+ssid=CAP-AP
+hw_mode=g
+channel=2
+country_code=KR
+ieee80211n=1
+wmm_enabled=1
+auth_algs=1
+wpa=2
+wpa_key_mgmt=WPA-PSK
+rsn_pairwise=CCMP
+ctrl_interface=/run/hostapd
+wpa_passphrase=<choose-your-own>

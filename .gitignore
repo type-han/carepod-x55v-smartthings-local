@@ -1,0 +1,14 @@
+# Packet captures contain the humidifier's MQTT password in plain text: never commit them
+*.pcap
+*.pcapng
+*.cap
+# SmartThings CLI binaries / archives
+*.exe
+*.zip
+smartthings-cli/
+# local notes and editor files
+*.local.md
+.vscode/
+.idea/
+__pycache__/
+*.pyc

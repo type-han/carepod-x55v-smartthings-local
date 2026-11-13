@@ -1,0 +1,11 @@
+{
+  "tag": "ko",
+  "label": "수위",
+  "attributes": {
+    "waterLevel": {
+      "label": "수위",
+      "displayTemplate": "{{device.label}}의 수위는 {{value}}/3입니다"
+    }
+  },
+  "commands": {}
+}

@@ -1,0 +1,6 @@
+name: 'CAREPOD X55V Local'
+packageKey: 'carepod-x55v-local'
+description: 'CAREPOD X55V humidifier over a local MQTT broker (no vendor cloud)'
+permissions:
+  lan: {}
+  discovery: {}

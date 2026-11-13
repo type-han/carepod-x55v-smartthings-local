@@ -1,0 +1,15 @@
+# Copy to /etc/systemd/system/. Replace wlp2s0 (both lines) with your wireless interface.
+[Unit]
+Description=CAREPOD: Wi-Fi AP for the humidifier on wlp2s0 (bridged to vmbr0)
+After=network.target sys-subsystem-net-devices-wlp2s0.device
+BindsTo=sys-subsystem-net-devices-wlp2s0.device
+
+[Service]
+Type=forking
+PIDFile=/run/carepod-hostapd.pid
+ExecStart=/usr/sbin/hostapd -B -P /run/carepod-hostapd.pid /etc/hostapd/carepod-cap.conf
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+#!/usr/sbin/nft -f
+# Runs ON THE AP host (copy to /etc/carepod/redirect.nft, loaded by carepod-redirect.service).
+# Sends the humidifier's cloud MQTT (tcp/1883) to the broker host on the same bridge.
+# Only the destination MAC is changed; the broker's nftables.conf redirects it to mosquitto.
+# Matches any destination outside the LAN, so it keeps working if the cloud IP changes.
+#
+# Replace before use:
+#   <HUMIDIFIER_MAC>  humidifier MAC, lower case with colons, e.g. a0:c6:a5:12:34:56
+#   <BROKER_MAC>      MAC of the broker host / container on the bridge
+#   <LAN_CIDR>        your LAN, e.g. 192.168.1.0/24
+#   wlp2s0            the AP's wireless interface
+table bridge carepod
+delete table bridge carepod
+table bridge carepod {
+  chain prerouting {
+    type filter hook prerouting priority dstnat; policy accept;
+    iifname "wlp2s0" ether saddr <HUMIDIFIER_MAC> ip daddr != <LAN_CIDR> tcp dport 1883 counter ether daddr set <BROKER_MAC> comment "CAREPOD MQTT -> local broker"
+  }
+}
